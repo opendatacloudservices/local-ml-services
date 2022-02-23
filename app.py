@@ -8,7 +8,7 @@ from services.nnlm import Nnlm
 from services.nnlm_de import Nnlm_de
 from services.nnlm_de_norm import Nnlm_de_norm
 from services.nnlm_norm import Nnlm_norm
-# from services.universal_sentence_encoder import Universal_sentence_encoder
+from services.universal_sentence_encoder import Universal_sentence_encoder
 from services.universal_sentence_encoder_large import Universal_sentence_encoder_large
 from services.universal_sentence_encoder_multi import Universal_sentence_encoder_multi
 
@@ -25,25 +25,25 @@ for object in jsonObject:
   texts_de.append(object['label'])
 
 # use_de = Universal_sentence_encoder()
-# use_de.process(texts, log=True)
+# use_de.process(texts, max_pca=512)
 
 use_de = Universal_sentence_encoder_large()
-use_de.process(texts, log=True)
+use_de.process(texts, max_pca=512)
 
 use_de = Universal_sentence_encoder_multi()
-use_de.process(texts_de, log=True)
+use_de.process(texts_de, max_pca=512)
 
 use_de = Nnlm()
-use_de.process(texts, log=True)
+use_de.process(texts, max_pca=128)
 
 use_de = Nnlm_norm()
-use_de.process(texts, log=True)
+use_de.process(texts, max_pca=128)
 
 use_de = Nnlm_de()
-use_de.process(texts_de, log=True)
+use_de.process(texts_de, max_pca=128)
 
 use_de = Nnlm_de_norm()
-use_de.process(texts_de, log=True)
+use_de.process(texts_de, max_pca=128)
 
 @app.route('/USE/cluster', methods=['POST'])
 def teams():
@@ -76,7 +76,7 @@ def teams():
   if 'text' not in request.json or type(request.json['text']) is not list or len(request.json['text']) == 0:
     return 'Missing input', 400
   
-  return jsonify(process(request.json['text'], log=True)), 200
+  return jsonify(use_de.process(request.json['text'])), 200
 
 if __name__ == '__main__':
   app.run()
