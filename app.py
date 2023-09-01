@@ -27,11 +27,11 @@ for object in jsonObject:
 # use_de = Universal_sentence_encoder()
 # use_de.process(texts, max_pca=512)
 
-use_de = Universal_sentence_encoder_large()
-use_de.process(texts, max_pca=512)
+# use_de = Universal_sentence_encoder_large()
+# use_de.process(texts, max_pca=512)
 
-use_de = Universal_sentence_encoder_multi()
-use_de.process(texts_de, max_pca=512)
+# use_de = Universal_sentence_encoder_multi()
+# use_de.process(texts_de, max_pca=512)
 
 use_de = Nnlm()
 use_de.process(texts, max_pca=128)

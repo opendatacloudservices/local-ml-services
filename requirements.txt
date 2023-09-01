@@ -12,7 +12,7 @@ google-auth==1.32.0
 google-auth-oauthlib==0.4.4
 google-pasta==0.2.0
 grpcio==1.34.1
-h5py==3.1.0
+h5py==3.7.0
 idna==2.10
 itsdangerous==2.0.1
 Jinja2==3.0.1
@@ -21,7 +21,7 @@ keras-nightly==2.5.0.dev2021032900
 Keras-Preprocessing==1.1.2
 Markdown==3.3.4
 MarkupSafe==2.0.1
-numpy==1.19.5
+numpy==1.24.1
 oauthlib==3.1.1
 opt-einsum==3.3.0
 protobuf==3.17.3
@@ -29,10 +29,6 @@ pyasn1==0.4.8
 pyasn1-modules==0.2.8
 python-dotenv==0.18.0
 pytz==2021.1
-requests==2.25.1
-requests-oauthlib==1.3.0
-rsa==4.7.2
-scikit-learn==0.24.2
 scipy==1.7.0
 six==1.15.0
 sklearn==0.0
